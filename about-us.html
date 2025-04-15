@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PrintDeployPro</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f7f9fc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .logo span {
+            color: #3498db;
+        }
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            margin-left: 1.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* About Content */
+        .about-section {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .about-content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+        /* Team Section */
+        .team-section {
+            padding: 4rem 0;
+            background-color: #f7f9fc;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .member-info .position {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        /* Mission Section */
+        .mission-section {
+            padding: 4rem 0;
+            background-color: white;
+            text-align: center;
+        }
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .mission-content h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        .mission-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .value-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        .value-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .footer-logo span {
+            color: #3498db;
+        }
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #3498db;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            nav li {
+                margin: 0 0.75rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: 1;
+            }
+            .about-content {
+                order: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Print<span>DeployPro</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About PrintDeployPro</h1>
+            <p>Leading specialists in enterprise printer deployment through Group Policy Objects</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="IT team working on printer deployment">
+                </div>
+                <div class="about-content">
+                    <h2>Our Story</h2>
+                    <p>PrintDeployPro was founded in 2017 by a team of enterprise IT specialists who recognized the challenges organizations face when managing printer deployments across large networks. What began as a consulting service for Fortune 500 companies has evolved into a comprehensive resource for IT administrators looking to optimize their printer management using Group Policy Objects.</p>
+                    <p>With over 20 years of combined experience in network administration and printer management, our team has helped hundreds of organizations across various industries implement efficient, secure, and scalable printing solutions.</p>
+                    <p>Today, PrintDeployPro stands as an industry leader in GPO printer deployment methodologies, providing resources, consultation, and training to IT teams worldwide. Our dedication to simplifying the complex world of enterprise printer management continues to drive our mission forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Leadership Team</h2>
+                <p>The experts behind PrintDeployPro's innovative approaches to GPO printer deployment</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/400/400" alt="Michael Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Chen</h3>
+                        <div class="position">Founder & CEO</div>
+                        <p>Former IT Director with 15+ years of enterprise infrastructure experience, specializing in Group Policy management and Active Directory integration.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/400/400" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Johnson</h3>
+                        <div class="position">CTO</div>
+                        <p>Microsoft Certified Systems Engineer with extensive experience in optimizing enterprise print environments and developing automation solutions.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/400/400" alt="David Rodriguez">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Rodriguez</h3>
+                        <div class="position">Head of Consulting</div>
+                        <p>Specialized in large-scale printer deployment projects for healthcare and financial institutions with a focus on security compliance.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/api/placeholder/400/400" alt="Emma Wilson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Emma Wilson</h3>
+                        <div class="position">Client Success Director</div>
+                        <p>Dedicated to ensuring optimal implementation of GPO printer solutions with expertise in training and documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Our Mission & Values</h2>
+                <p>At PrintDeployPro, we are committed to simplifying enterprise printer management through innovative GPO deployment strategies, comprehensive training, and dedicated support.</p>
+                <p>Our mission is to empower IT administrators with the knowledge and tools they need to implement efficient, secure, and user-friendly printing environments across their organizations.</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>Continuously seeking better methods for printer deployment and management in evolving IT environments.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Partnership</h3>
+                        <p>Building long-term relationships with our clients based on trust, transparency, and mutual success.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🔍</div>
+                        <h3>Excellence</h3>
+                        <p>Maintaining the highest standards in our methodologies, documentation, and client interactions.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🌱</div>
+                        <h3>Sustainability</h3>
+                        <p>Promoting efficient printing practices that reduce waste and environmental impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Print<span>DeployPro</span></div>
+                    <p>Specializing in enterprise printer deployment solutions using Group Policy Objects to streamline network printer management.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">GPO Deployment Guide</a></li>
+                        <li><a href="#">Printer Driver Management</a></li>
+                        <li><a href="#">Security Best Practices</a></li>
+                        <li><a href="#">Troubleshooting Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@printdeploypro.com</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Address: 123 Tech Parkway, Suite 300, Silicon Valley, CA 94025</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 PrintDeployPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
