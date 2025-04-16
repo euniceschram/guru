@@ -1,6 +1,201 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printer Support Click-to-Call</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Hidden popup by default */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        /* Visible popup */
+        .popup-container.active {
+            display: block;
+            animation: fadeIn 0.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        /* Header styling */
+        .popup-header {
+            background: #0066cc;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .popup-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        /* Content styling */
+        .popup-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .support-icon {
+            font-size: 40px;
+            color: #0066cc;
+            margin-bottom: 15px;
+        }
+        
+        .popup-message {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .call-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #00cc66;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .call-button:hover {
+            background: #00aa55;
+        }
+        
+        /* Overlay background */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+        
+        .popup-overlay.active {
+            display: block;
+        }
+        
+        /* Trigger button */
+        .trigger-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 997;
+        }
+        
+        .trigger-button:hover {
+            background: #0055aa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Trigger Button -->
+    <button class="trigger-button" id="supportTrigger">
+        <i>🖨️</i>
+    </button>
+    
+    <!-- Overlay for background dimming -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    
+    <!-- Popup Container -->
+    <div class="popup-container" id="supportPopup">
+        <div class="popup-header">
+            <h3 class="popup-title">Printer Support</h3>
+        </div>
+        <div class="popup-content">
+            <div class="support-icon">🖨️</div>
+            <p class="popup-message">Experiencing printer issues? Our technical support team is ready to help you resolve your printer problems quickly.</p>
+            <a href="tel:18052589486" class="call-button">
+                Call Support Now
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Wait for document to load
+        document.addEventListener('DOMContentLoaded', function() {
+            const trigger = document.getElementById('supportTrigger');
+            const popup = document.getElementById('supportPopup');
+            const overlay = document.getElementById('popupOverlay');
+            
+            // Function to show popup
+            function showPopup() {
+                popup.classList.add('active');
+                overlay.classList.add('active');
+            }
+            
+            // Show popup after 5 seconds for first-time visitors
+            if (!localStorage.getItem('popupShown')) {
+                setTimeout(() => {
+                    showPopup();
+                    localStorage.setItem('popupShown', 'true');
+                }, 5000);
+            }
+            
+            // Show popup when trigger button is clicked
+            trigger.addEventListener('click', function() {
+                showPopup();
+            });
+            
+            // The popup can only be closed by clicking the call button
+            // No close button or overlay closing functionality
+        });
+    </script>
+</body>
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Printer Pro - GPO Printer Deployment Solutions</title>
@@ -268,7 +463,7 @@
         <div class="container">
             <h1>Simplify Your Printer Deployment with GPO</h1>
             <p>Streamline printer management across your organization with our comprehensive Group Policy Object deployment strategies and tools.</p>
-            <a href="contact.html" class="cta-button">Get Started Today</a>
+            <a href="tel:18052589486" class="call-button">Call Printer Experts Today</a>
         </div>
     </section>
 
@@ -381,7 +576,7 @@
                     <h3>Contact Us</h3>
                     <ul>
                         <li>Email: info@Smartprintersetup.space</li>
-                        <li>Phone: (555) 123-4567</li>
+                        <li>Phone: (805) 258 9486</li>
                         <li>Address: 123 Tech Parkway, Suite 300, Silicon Valley, CA 94025</li>
                     </ul>
                 </div>
